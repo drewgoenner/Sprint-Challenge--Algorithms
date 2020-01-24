@@ -97,6 +97,44 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
+        # Turn light on to start
+        self.set_light_on()
+        # Make robot turn light off when it isn't swapping
+        while self.light_is_on() == True:
+            self.set_light_off()
+
+            #Now to build out so it can move to the right and swap
+            while self.can_move_right():
+                #first, pick up the initial item in the list
+                self.swap_item()
+                #move to next item in the list
+                self.move_right()
+                #compare items and swap if held item is greater, then save held item
+                if self.compare_item() == 1:
+                    self.swap_item()
+                    self.set_light_on()
+                #move back left, drop held item, then continue right and repeat
+                self.move_left()
+                self.swap_item()
+                self.move_right()
+
+            #Time to do the opposite if it's at the far side of the list
+            while self.can_move_left():
+                #pick up item at far end of list
+                self.swap_item()
+                #move to previous item on list
+                self.move_left()
+                #compre items, swapping only if held item is smaller this time, then saving said item
+                if self.compare_item() == -1:
+                    self.swap_item()
+                    self.set_light_on()
+                #and then move back, drop held item, and continue left, repeating
+                self.move_right()
+                self.swap_item()
+                self.move_left()
+        #lastly, return the new, sorted list
+        # return self._list
+
         # The light can save a carried item when swapped so that it can swap it elsewhere
         # I need to make it so that the light when on, turns off until another valid swap is needed
         # Make it so that the robot starts, picks up an item, moves down the list to the next, compares the item and swaps if the current item is bigger and turns the light on to carry the item
