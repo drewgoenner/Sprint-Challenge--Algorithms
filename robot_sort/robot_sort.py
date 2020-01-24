@@ -132,7 +132,7 @@ class SortingRobot:
                 self.move_right()
                 self.swap_item()
                 self.move_left()
-        #lastly, return the new, sorted list
+        #lastly, return the new, sorted list (commented out as it technically breaks one of the rules, still passes MVP test)
         # return self._list
 
         # The light can save a carried item when swapped so that it can swap it elsewhere
