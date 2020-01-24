@@ -97,7 +97,12 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        # The light can save a carried item when swapped so that it can swap it elsewhere
+        # I need to make it so that the light when on, turns off until another valid swap is needed
+        # Make it so that the robot starts, picks up an item, moves down the list to the next, compares the item and swaps if the current item is bigger and turns the light on to carry the item
+        # Have the robot move left and swap the item, then repeat
+        # Do the opposite once it gets to the far side of the list (meaning move left and swap the item held if it is smaller, then move back right to replace the picked up item)
+        # At the end, return the sorted list
 
 
 if __name__ == "__main__":
